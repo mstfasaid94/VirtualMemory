@@ -1,9 +1,9 @@
-//  Created by Moustapha Said on 4/10/19.    CWID : 888907524
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
 #include <map>
+#include<vector>
 
 
 #define ARGC_ERROR 1
@@ -44,38 +44,40 @@ int main(int argc, const char * argv[]) {
 
 
       // added page table code
-      int T[1000];
+      int T[256];
       int i=0;
       int k=0;
       FILE* faddd = fopen("addresses.txt", "r");
-      while(k<1000){
+      while(k<256){
       fscanf(faddd, "%d", &logic_add);  // read from file address.txt
       page = getpage(logic_add);
-      for( i=0 ; i<1000 ; i++){
+      for( i=0 ; i<256 ; i++){
         T[i]= page;
         k++;
        }
      }
 
-      // TODO:  added TLB code but not done yet
-    /*  int l=0;
+     // TODO:  added TLB code but not done yet
+      /*  int l=0;
       std::map<int, int> TLB;
-      std::vector<int>iterator itr;
+      std::map<int, int>::iterator itr = TLB.begin();
 
-
-      for( i=0; i< 16 ; i++){
+      for( int i=0; i< 16 ; i++){
         TLB.insert(std::pair<int, int>(T[i], l * FRAME_SIZE));
         l++;
+        printf( " %5u \n ",T[i]);
+        printf( " %5u \n ",l * FRAME_SIZE);
+            }
+        for ( itr = TLB.begin(); itr != TLB.end(); itr++) {
+            printf("%5u \n", itr->first);
+            printf("%5u \n", itr->second);
 
-        for ( itr = TLB.begin(); itr != TLB.end(); ++itr) {
-
-                }
-
-        }   */
+          } */
 
 
 
-  while (frame < 1000 ) {
+
+  while (frame < 256 ) {
     fscanf(fcorr, "%s %s %d %s %s %d %s %d", buf, buf, &virt_add,
            buf, buf, &phys_add, buf, &value);  // read from file correct.txt
 
