@@ -93,6 +93,7 @@ int main(int argc, const char * argv[]) {
     }
 
     // todo: read BINARY_STORE and confirm value matches read value from correct.txt
+    assert(physical_add=phys_add);
     printf("logical: %5u (page:%3u, offset:%3u) ---> physical: %5u -- passed\n", logic_add, page, offset, physical_add);
     if (frame % 5 == 0) { printf("\n"); }
   }
